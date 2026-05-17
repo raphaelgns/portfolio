@@ -1,5 +1,13 @@
 export type TranslationType = typeof translations.en;
 
+export interface ProjectItem {
+  title: string;
+  description: string;
+  problem: string;
+  impact: string;
+  status?: string;
+}
+
 export const translations = {
   en: {
     nav: {
@@ -15,7 +23,7 @@ export const translations = {
       title_part1: "",
       title_highlight: "Computing Engineer",
       title_part2: "",
-      description: "Technology professional with an analytical, proactive, and problem-solving profile, with experience and interest in IT infrastructure, networking, software testing, and process automation. Fast learner of new technologies, team player, and focused on improving efficiency and reliability.",
+      description: "Technology professional with an analytical, proactive, and problem-solving profile, with experience and interest in IT infrastructure, networking, and process automation. Fast learner of new technologies, team player, and focused on improving efficiency and reliability.",
       view_projects: "",
     },
     about: {
@@ -89,31 +97,32 @@ export const translations = {
           description: "Automated monthly backup system for SAGE substations using Bash and Crontab.",
           problem: "Manual backup processes were inconsistent and prone to human error across multiple substations.",
           impact: "Ensured 100% backup reliability and compliance with monthly maintenance protocols.",
-        },
+        } as ProjectItem,
         {
           title: "Maintenance Plan Optimizer",
           description: "Python-driven automation for creating orders and notes in SAP for maintenance plans.",
           problem: "Extensive manual process from creation to completion of maintenance plans in ERP systems.",
           impact: "Reduced process time by over 35% and mitigated data entry errors through automation.",
-        },
+        } as ProjectItem,
         {
           title: "Network Audit Toolkit",
+          status: "UNDER CONSTRUCTION",
           description: "Security and troubleshooting tools for complex network environments.",
           problem: "Lack of centralized tools for rapid network analysis and vulnerability scanning.",
           impact: "Improved troubleshooting speed and identified critical network vulnerabilities.",
-        },
+        } as ProjectItem,
         {
           title: "Homelab: File Server & Monitoring",
           description: "NAS server implementation with Linux and OpenMediaVault to understand network concepts.",
           problem: "Need for a centralized storage solution with user permission management and system hardening.",
           impact: "Hands-on experience with NAS, SSH hardening, and secure data management.",
-        },
+        } as ProjectItem,
         {
           title: "Robot Sumo",
           description: "Developed a combat robot from scratch using ESP32 and custom C/C++ programming.",
           problem: "Designing a competitive robot capable of autonomous or remote combat against other students' robots.",
           impact: "Successful end-to-end implementation of hardware, electronics, and logic for competitive environment.",
-        },
+        } as ProjectItem,
       ],
     },
     contact: {
@@ -214,32 +223,32 @@ export const translations = {
           description: "Sistema de backup mensal automatizado para subestações SAGE usando Bash e Crontab.",
           problem: "Processos de backup manuais eram inconsistentes e propensos a erros humanos.",
           impact: "Garantiu 100% de confiabilidade e conformidade com protocolos de manutenção.",
-        },
+        } as ProjectItem,
         {
           title: "Otimizador de Plano de Manutenção",
           description: "Automação em Python para criação de ordens e notas no SAP para planos de manutenção.",
           problem: "Processo manual extenso para gestão de planos de manutenção em sistemas ERP.",
           impact: "Reduziu o tempo do processo em 35% e mitigou erros de preenchimento via automação.",
-        },
+        } as ProjectItem,
         {
           title: "Toolkit de Auditoria de Rede",
           status: "EM CONSTRUÇÃO",
           description: "Ferramentas de segurança e solução de problemas para ambientes de rede complexos.",
           problem: "Falta de ferramentas centralizadas para análise rápida de rede e vulnerabilidades.",
           impact: "Melhorou a velocidade de resolução de problemas e identificação de falhas críticas.",
-        },
+        } as ProjectItem,
         {
           title: "Homelab: Servidor de Arquivos e Monitoramento",
           description: "Implementação de servidor NAS com Linux e OpenMediaVault para conceitos de redes.",
           problem: "Necessidade de armazenamento centralizado com gestão de permissões e hardening de sistema.",
           impact: "Experiência prática com NAS, hardening de SSH e gestão segura de dados.",
-        },
+        } as ProjectItem,
         {
           title: "Sumô de Robô",
           description: "Desenvolvimento de um robô de combate do zero usando ESP32 e programação C/C++.",
           problem: "Projetar um robô competitivo capaz de lutar autonomamente ou via controle remoto contra outros robôs.",
           impact: "Implementação completa de hardware, eletrônica e lógica para ambiente competitivo.",
-        },
+        } as ProjectItem,
       ],
     },
     contact: {
@@ -253,5 +262,3 @@ export const translations = {
     },
   },
 };
-;
-
