@@ -14,27 +14,14 @@ export function Hero() {
     <section className="relative flex flex-col items-center justify-center min-h-screen px-6 pt-24 overflow-hidden lg:flex-row lg:px-12 gap-12 lg:gap-20">
       <div className="z-10 w-full max-w-3xl space-y-8 lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
         <div className="space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
-          >
-            <span className="relative flex h-2 w-2 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            {t.hero.badge}
-          </motion.div>
-          
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl font-extrabold tracking-tighter md:text-7xl lg:text-8xl"
           >
-            {t.hero.title_part1} <span className="text-primary">{t.hero.title_highlight}</span> 👋 <br />
-            <span className="text-3xl md:text-5xl lg:text-6xl text-muted-foreground">{t.hero.title_part2}</span>
+            {t.hero.title_part1} <span className="text-primary">{t.hero.title_highlight}</span>
+            <div className="text-3xl md:text-5xl lg:text-6xl text-muted-foreground mt-2">{t.hero.title_part2}</div>
           </motion.h1>
         </div>
 
@@ -78,7 +65,7 @@ export function Hero() {
             alt="Raphael"
             fill
             priority
-            className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            className="object-cover"
           />
         </div>
         

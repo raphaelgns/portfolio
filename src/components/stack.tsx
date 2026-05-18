@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { 
-  SiLinux, SiDocker, SiPostgresql, SiGit, SiPython, SiGnubash 
+  SiLinux, SiDocker, SiPostgresql, SiGit, SiPython, SiGnubash,
+  SiOpenjdk, SiCplusplus, SiDotnet
 } from "react-icons/si";
 import { useLanguage } from "@/components/language-provider";
 
@@ -16,6 +17,12 @@ const mainSkills = [
 const learningSkills = [
   { name: "Docker", icon: SiDocker },
   { name: "Git", icon: SiGit },
+];
+
+const otherLanguages = [
+  { name: "Java", icon: SiOpenjdk },
+  { name: "C / C++", icon: SiCplusplus },
+  { name: "C#", icon: SiDotnet },
 ];
 
 export function Stack() {
@@ -38,7 +45,8 @@ export function Stack() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-16">
+        <div className="flex flex-col items-center gap-20">
+          {/* Principal */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-12">
             {mainSkills.map((tech, index) => (
               <motion.div
@@ -59,28 +67,57 @@ export function Stack() {
             ))}
           </div>
 
-          <div className="space-y-8 text-center w-full">
-            <h3 className="text-xl font-semibold text-muted-foreground uppercase tracking-[0.2em]">
-              {t.skills.learning}
-            </h3>
-            <div className="grid grid-cols-2 gap-8 max-w-sm mx-auto">
-              {learningSkills.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.05 }}
-                  className="flex flex-col items-center gap-4 group opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all"
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-background/50 border border-border/50 flex items-center justify-center transition-all duration-300 group-hover:border-primary/50">
-                    <tech.icon className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-                    {tech.name}
-                  </span>
-                </motion.div>
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-4xl">
+            {/* Outras Linguagens (Básico) */}
+            <div className="space-y-8 text-center">
+              <h3 className="text-xl font-semibold text-muted-foreground uppercase tracking-[0.2em]">
+                {t.skills.basic_level}
+              </h3>
+              <div className="grid grid-cols-3 gap-8">
+                {otherLanguages.map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                    className="flex flex-col items-center gap-4 group opacity-70 transition-all hover:opacity-100"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-background/50 border border-border/50 flex items-center justify-center transition-all duration-300 group-hover:border-primary/50">
+                      <tech.icon className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Em aprendizado */}
+            <div className="space-y-8 text-center">
+              <h3 className="text-xl font-semibold text-muted-foreground uppercase tracking-[0.2em]">
+                {t.skills.learning}
+              </h3>
+              <div className="grid grid-cols-2 gap-8 max-w-[240px] mx-auto">
+                {learningSkills.map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.05 }}
+                    className="flex flex-col items-center gap-4 group opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-background/50 border border-border/50 flex items-center justify-center transition-all duration-300 group-hover:border-primary/50">
+                      <tech.icon className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
