@@ -2,31 +2,47 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/components/language-provider";
 
 export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 pt-20 overflow-hidden lg:flex-row lg:px-12">
-      <div className="z-10 w-full max-w-5xl space-y-8 lg:w-2/3 text-center lg:text-left flex flex-col items-center lg:items-start">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl font-extrabold tracking-tighter md:text-7xl lg:text-8xl"
-        >
-          {t.hero.title_part1} <span className="text-primary">Computing Engineer</span> <br />
-          {t.hero.title_part2}
-        </motion.h1>
+    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 pt-24 overflow-hidden lg:flex-row lg:px-12 gap-12 lg:gap-20">
+      <div className="z-10 w-full max-w-3xl space-y-8 lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
+        <div className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
+          >
+            <span className="relative flex h-2 w-2 mr-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            {t.hero.badge}
+          </motion.div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl font-extrabold tracking-tighter md:text-7xl lg:text-8xl"
+          >
+            {t.hero.title_part1} <span className="text-primary">{t.hero.title_highlight}</span> 👋 <br />
+            <span className="text-3xl md:text-5xl lg:text-6xl text-muted-foreground">{t.hero.title_part2}</span>
+          </motion.h1>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-xl text-lg md:text-xl text-muted-foreground"
+          className="max-w-xl text-lg md:text-xl text-muted-foreground leading-relaxed"
         >
           {t.hero.description}
         </motion.p>
@@ -37,26 +53,44 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-wrap justify-center lg:justify-start gap-4"
         >
-          {t.hero.view_projects && (
-            <Link href="https://www.linkedin.com/in/raphael-nikolas-de-alencar-goncalves/" target="_blank">
-              <Button size="lg" className="rounded-full group">
-                {t.hero.view_projects} 
-                <Linkedin className="w-4 h-4 ml-2 transition-transform group-hover:scale-110" />
-              </Button>
-            </Link>
-          )}
+          <Link href="https://www.linkedin.com/in/raphael-nikolas-de-alencar-goncalves/" target="_blank">
+            <Button size="lg" className="rounded-full group px-8">
+              {t.hero.view_projects} 
+              <Linkedin className="w-4 h-4 ml-2 transition-transform group-hover:scale-110" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
 
-      {/* Decorative side element */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.3, scale: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="absolute right-[-10%] top-[20%] hidden lg:block"
+        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px]"
       >
-        <div className="w-[600px] h-[600px] rounded-full bg-primary/20 blur-[120px]" />
+        {/* Background glow */}
+        <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] animate-pulse" />
+        
+        {/* Image Container */}
+        <div className="relative w-full h-full overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted/50 backdrop-blur-sm shadow-2xl">
+          <Image
+            src="/me.jfif"
+            alt="Raphael"
+            fill
+            priority
+            className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+          />
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+        <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
       </motion.div>
+
+      {/* Background Decorative Blur */}
+      <div className="absolute right-[-10%] top-[20%] hidden lg:block -z-10">
+        <div className="w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
+      </div>
     </section>
   );
 }

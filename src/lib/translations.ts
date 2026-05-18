@@ -20,11 +20,11 @@ export const translations = {
     },
     hero: {
       badge: "Available for new opportunities",
-      title_part1: "",
-      title_highlight: "Computing Engineer",
-      title_part2: "",
-      description: "Technology professional with an analytical, proactive, and problem-solving profile, with experience and interest in IT infrastructure, networking, and process automation. Fast learner of new technologies, team player, and focused on improving efficiency and reliability.",
-      view_projects: "",
+      title_part1: "Hi, I'm",
+      title_highlight: "Raphael",
+      title_part2: "Computing Engineer",
+      description: "A tech enthusiast passionate about infrastructure and automation. I love solving complex problems and building efficient systems that make technology work seamlessly.",
+      view_projects: "Let's connect",
     },
     about: {
       title_part1: "Bridge between",
@@ -146,11 +146,11 @@ export const translations = {
     },
     hero: {
       badge: "Disponível para novas oportunidades",
-      title_part1: "",
-      title_highlight: "Computing Engineer",
-      title_part2: "",
-      description: "Profissional de tecnologia com perfil analítico, proativo e orientado à resolução de problemas, com experiência e interesse em infraestrutura de TI, redes e automação de processos. Possuo facilidade em aprender novas tecnologias, atuar em equipe e lidar com desafios técnicos.",
-      view_projects: "",
+      title_part1: "Oi, eu sou o",
+      title_highlight: "Raphael",
+      title_part2: "Engenheiro da Computação",
+      description: "Um entusiasta de tecnologia apaixonado por infraestrutura e automação. Adoro resolver problemas complexos e construir sistemas eficientes que fazem a tecnologia funcionar de forma fluida.",
+      view_projects: "Vamos conversar",
     },
     about: {
       title_part1: "Ponte entre",
