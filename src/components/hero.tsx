@@ -61,7 +61,7 @@ export function Hero() {
         {/* Image Container */}
         <div className="relative w-full h-full overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted/50 backdrop-blur-sm shadow-2xl">
           <Image
-            src="/me.jfif"
+            src="/me.jpeg"
             alt="Raphael"
             fill
             priority
