@@ -45,10 +45,10 @@ export function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full bg-secondary/30 border-border/50 hover:border-primary/50 transition-colors group">
+                <Card className="h-full bg-secondary/30 border-border/50 hover:border-primary/50 transition-colors group select-none">
                   <CardHeader>
-                    <Icon className="w-10 h-10 text-primary mb-2 transition-transform group-hover:scale-110" />
-                    <CardTitle className="text-xl">{item.title}</CardTitle>
+                    <Icon className="w-10 h-10 text-primary mb-2 transition-colors" />
+                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{item.description}</p>

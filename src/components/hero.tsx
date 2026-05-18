@@ -11,7 +11,7 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 pt-24 overflow-hidden lg:flex-row lg:px-12 gap-12 lg:gap-20">
+    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 pt-24 overflow-hidden lg:flex-row lg:px-12 gap-16 lg:gap-32">
       <div className="z-10 w-full max-w-3xl space-y-8 lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
         <div className="space-y-4">
           <motion.h1
@@ -50,18 +50,18 @@ export function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px]"
+        className="relative z-10 w-72 h-72 md:w-96 md:h-96 lg:w-[480px] lg:h-[480px]"
       >
         {/* Background glow */}
-        <div className="absolute inset-0 bg-primary/20 rounded-full blur-[80px] animate-pulse" />
+        <div className="absolute inset-0 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
         
-        {/* Image Container */}
-        <div className="relative w-full h-full overflow-hidden rounded-3xl border-2 border-primary/20 bg-muted/50 backdrop-blur-sm shadow-2xl">
+        {/* Image Container with rounded corners and glass effect */}
+        <div className="relative w-full h-full overflow-hidden rounded-[3rem] border border-primary/20 bg-secondary/10 backdrop-blur-sm shadow-2xl">
           <Image
-            src="/me.jpeg"
+            src="/me.png"
             alt="Raphael"
             fill
             priority
@@ -70,8 +70,8 @@ export function Hero() {
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-        <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute -top-6 -left-6 w-40 h-40 bg-primary/5 rounded-full blur-[100px] -z-10" />
       </motion.div>
 
       {/* Background Decorative Blur */}

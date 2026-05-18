@@ -57,7 +57,7 @@ export function Projects() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full bg-secondary/20 border-border/50 overflow-hidden group hover:border-primary/30 transition-all duration-300">
+                <Card className="h-full bg-secondary/20 border-border/50 overflow-hidden group hover:border-primary/30 transition-all duration-300 select-none">
                   <CardHeader className="relative">
                     <div className="flex justify-between items-start mb-4">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${colors[index % colors.length]}`}>
@@ -87,16 +87,6 @@ export function Projects() {
                       ))}
                     </div>
                   </CardContent>
-                  <CardFooter className="border-t border-border/50 bg-background/30 flex justify-between py-4 mt-auto">
-                    <Button variant="ghost" size="sm" className="hover:text-primary">
-                      {t.projects.details}
-                    </Button>
-                    <div className="flex gap-2">
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <Github className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </CardFooter>
                 </Card>
               </motion.div>
             );

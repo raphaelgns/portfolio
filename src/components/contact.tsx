@@ -9,6 +9,7 @@ import { useState } from "react";
 
 export function Contact() {
   const { t } = useLanguage();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,6 +26,9 @@ export function Contact() {
     const tempLink = document.createElement("a");
     tempLink.href = mailtoLink;
     tempLink.click();
+    
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 5000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -107,9 +111,22 @@ export function Contact() {
                 className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
               />
             </div>
-            <Button type="submit" className="w-full rounded-xl py-6 text-lg group">
-              {t.contact.say_hello} <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <Button 
+              type="submit" 
+              className={`w-full rounded-xl py-6 text-lg group transition-all ${isSubmitted ? 'bg-green-600 hover:bg-green-700' : ''}`}
+              disabled={isSubmitted}
+            >
+              {isSubmitted ? (
+                <>Message Sent! <Send className="w-4 h-4 ml-2" /></>
+              ) : (
+                <>{t.contact.say_hello} <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></>
+              )}
             </Button>
+            {isSubmitted && (
+              <p className="text-center text-sm text-green-500 font-medium animate-pulse mt-2">
+                Your email client should open shortly!
+              </p>
+            )}
           </form>
         </motion.div>
 

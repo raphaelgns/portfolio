@@ -25,8 +25,21 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       className="fixed top-0 left-0 right-0 z-50 flex justify-center p-6"
     >
-      <nav className="flex items-center justify-between w-full max-w-5xl px-8 py-3 border rounded-full backdrop-blur-md bg-background/50 border-border/50">
-        {/* Desktop Nav */}
+      <nav className="flex items-center justify-between w-full max-w-5xl px-4 md:px-8 py-3 border rounded-full backdrop-blur-md bg-background/50 border-border/50">
+        {/* Mobile Language Button - Left Side */}
+        <div className="md:hidden">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="rounded-full w-8 h-8"
+            onClick={() => setLanguage(language === "en" ? "pt" : "en")}
+            title={language === "en" ? "Mudar para Português" : "Change to English"}
+          >
+            <Languages className="w-4 h-4" />
+          </Button>
+        </div>
+
+        {/* Desktop Nav - Centered */}
         <div className="hidden space-x-12 md:flex mx-auto">
           {navItems.map((item) => (
             <Link
@@ -39,29 +52,37 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center space-x-6">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="rounded-full w-8 h-8"
-            onClick={() => setLanguage(language === "en" ? "pt" : "en")}
-            title={language === "en" ? "Mudar para Português" : "Change to English"}
-          >
-            <Languages className="w-4 h-4" />
-            <span className="sr-only">Toggle Language</span>
-          </Button>
+        {/* Right Side Actions */}
+        <div className="flex items-center space-x-2 md:space-x-6">
+          {/* Desktop Language Button */}
+          <div className="hidden md:block">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="rounded-full w-8 h-8"
+              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
+              title={language === "en" ? "Mudar para Português" : "Change to English"}
+            >
+              <Languages className="w-4 h-4" />
+            </Button>
+          </div>
           
           <Link href="https://www.linkedin.com/in/raphael-nikolas-de-alencar-goncalves/" target="_blank" className="hidden sm:block">
             <Linkedin className="w-5 h-5 transition-colors text-muted-foreground hover:text-primary" />
           </Link>
+          
           <Link href="/cv.pdf" target="_blank">
             <Button variant="default" size="sm" className="hidden rounded-full md:flex shadow-lg shadow-primary/20">
               {t.nav.resume} <FileText className="w-4 h-4 ml-2" />
             </Button>
           </Link>
           
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X /> : <Menu />}
+          {/* Mobile Hamburger Menu - Right Side */}
+          <button 
+            className="md:hidden p-1.5 rounded-full hover:bg-primary/10 transition-colors" 
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </nav>

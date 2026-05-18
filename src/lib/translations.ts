@@ -147,7 +147,7 @@ export const translations = {
     },
     hero: {
       badge: "Disponível para novas oportunidades",
-      title_part1: "Oi, eu sou o",
+      title_part1: "Hi, I'm",
       title_highlight: "Raphael",
       title_part2: "Estudante de Engenharia da Computação",
       description: "Um entusiasta de tecnologia apaixonado por infraestrutura e automação. Adoro resolver problemas complexos e construir sistemas eficientes que fazem a tecnologia funcionar de forma fluida.",
